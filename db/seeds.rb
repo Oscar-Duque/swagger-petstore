@@ -8,10 +8,13 @@
 
 require 'faker'
 
-puts 'Seeding the database'
-for i in 0...300
+puts 'Destroying everithing in the database...'
+Pet.destroy_all
+
+puts 'Creating 100 instances of Pet'
+for i in 0...100
   pet = Pet.new(name: Faker::Movies::StarWars.character, tag: Faker::Movies::StarWars.call_sign)
   pet.save!
   print '.'
 end
-puts 'Done! Created 300 instances of Dog'
+puts 'Done!'
