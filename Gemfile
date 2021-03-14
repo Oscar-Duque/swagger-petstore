@@ -18,8 +18,12 @@ gem 'puma', '~> 4.1'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+# To create json responses
 gem 'jbuilder'
+# For seeding the DB with fake data for testing
 gem 'faker'
+# For pagination on Pet#index
+gem 'pagy', '~> 3.5'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'

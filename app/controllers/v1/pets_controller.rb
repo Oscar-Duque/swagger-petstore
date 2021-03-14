@@ -1,8 +1,12 @@
 class V1::PetsController < V1::BaseController
+  include Pagy::Backend
+
+  after_action { pagy_headers_merge(@pagy) if @pagy }
 
   def index
-    @pets = Pet.all
-    # params[:limit]
+    @pagy, @pets = pagy(Pet.all)
+    scaffold_url = pagy_metadata(@pagy, url=true)[:scaffold_url].to_s
+    @next_link = scaffold_url.sub('__pagy_page__', pagy_metadata(@pagy)[:next].to_s)
   end
 
   def show
