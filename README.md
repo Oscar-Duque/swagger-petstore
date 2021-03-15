@@ -57,7 +57,11 @@ In the body of the request, send a json formated object with the following infor
 
 The name of the pet is mandatory, the tag of the pet is optional.
 
-On the header of the request you need to specify you are sending content in json format by adding `{ "Content-Type": "application/json" }`
+On the header of the request you need to specify you are sending content in json format by adding:
+
+```ruby
+{ "Content-Type": "application/json" }
+```
 
 ## Maintainer
 
