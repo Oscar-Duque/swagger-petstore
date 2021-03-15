@@ -21,6 +21,44 @@ To deploy localy on a bash environment with rails installed:
 4. (Optional) For easyer testing, seed the database with fake data running `rails db:seed`.
 5. Do a local deployment with `rails serve`.
 
+## API Functions
+
+### GET /v1/pets
+
+To get a paginated list of pets, just make a GET request to the following endpoint:
+ `/v1/pets`.
+On the header of the response you will get a link to the next page under the `X-next` key.
+You can add the optional param `limit=[1-100]` to limit the amount of results shown by page.
+
+### GET /v1/pets/:id
+
+To get the information of a pet with a specific id, just make a GET request to the following endpoint:
+
+ ```ruby
+/v1/pets/:id
+```
+
+### POST 
+
+To add a pet to the database, make a POST request to the following endpoint:
+
+```ruby
+/v1/pets
+```
+
+In the body of the request, send a json formated object with the following information:
+
+```ruby
+{
+  "name": "[my_name]"
+  "tag": "[my_tag]"
+}
+```
+
+The name of the pet is mandatory, the tag of the pet is optional.
+
+On the header of the request you need to specify you are sending content in json format by adding `{ "Content-Type": "application/json" }`
+
 ## Maintainer
 
 * Oscar Duque (https://github.com/Oscar-Duque)
